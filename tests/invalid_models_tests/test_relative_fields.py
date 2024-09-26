@@ -89,6 +89,23 @@ class RelativeFieldTests(SimpleTestCase):
         field = Model._meta.get_field("m2m")
         self.assertEqual(field.check(from_model=Model), [])
 
+    @isolate_apps("invalid_models_tests")
+    def test_auto_created_through_model(self):
+        class OtherModel(models.Model):
+            pass
+
+        class M2MModel(models.Model):
+            many_to_many_rel = models.ManyToManyField(OtherModel)
+
+        class O2OModel(models.Model):
+            one_to_one_rel = models.OneToOneField(
+                "invalid_models_tests.M2MModel_many_to_many_rel",
+                on_delete=models.CASCADE,
+            )
+
+        field = O2OModel._meta.get_field("one_to_one_rel")
+        self.assertEqual(field.check(from_model=O2OModel), [])
+
     def test_many_to_many_with_useless_options(self):
         class Model(models.Model):
             name = models.CharField(max_length=20)
@@ -1600,7 +1617,6 @@ class SelfReferentialFKClashTests(SimpleTestCase):
 
 @isolate_apps("invalid_models_tests")
 class ComplexClashTests(SimpleTestCase):
-
     # New tests should not be included here, because this is a single,
     # self-contained sanity check, not a test of everything.
     def test_complex_clash(self):

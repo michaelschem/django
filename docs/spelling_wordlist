@@ -40,6 +40,7 @@ backends
 backport
 backported
 backports
+backtick
 backtraces
 balancer
 basename
@@ -95,6 +96,7 @@ contenttypes
 contrib
 coroutine
 coroutines
+counterintuitive
 criticals
 cron
 crontab
@@ -118,6 +120,7 @@ datetimes
 declaratively
 decrementing
 deduplicates
+deduplication
 deepcopy
 deferrable
 deprecations
@@ -235,6 +238,7 @@ iterable
 iterables
 iteratively
 ize
+Jazzband
 Jinja
 jQuery
 Jupyter
@@ -326,6 +330,7 @@ OGC
 OGR
 ons
 orderable
+Orca
 Orléans
 orm
 Outdim
@@ -357,6 +362,7 @@ postfix
 postgis
 postgres
 postgresql
+pragma
 pre
 precisions
 precomputation
@@ -414,6 +420,7 @@ redisplayed
 redisplaying
 redisplays
 reenable
+reescape
 referer
 referers
 reflow
@@ -584,6 +591,7 @@ util
 utils
 Uvicorn
 uWSGI
+Uyghur
 validator
 validators
 variadic
